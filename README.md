@@ -5,8 +5,11 @@ Zettlemoyer, Nicola Cancedda, and Thomas Scialom which was presented at NeurIPS 
 ## 3.2 - Chosen Result
 In this project, we aim to (1) reproduce the experiment where Cold Diffusion is used to invert image transformations such as blurring, specifically Figure 3 and Table 1 in the original paper. We give our attempt at re-implementing these pictures in the '/results' folder. These results demonstrate Cold Diffusion's ability to handle a common type of transformations on images. It's also possible to reproduce the results since it is trained on public datasets like MNIST and CIFAR-10. The research team also made their code available on GitHub.
 
-## 3.3 - Re-implementation Details
+## 3.3a - Re-implementation Details
 Much like in the original paper, we utilize a UNet architecture which we train on a Gaussian Diffusion task where we use a blur operator coupled with Guassian kernels. Our network has a series of down-samples with attention blocks, all with residual connections, followed by a series of up-samples with attention blocks. We test our model on the MNIST dataset, which the paper does, though they mainly focus on the celebrity face datset to show off their results. All required libraries are included in the prologue of our notebook, and all datasets will be downloaded when the corresponding cell is run. To train our model, we require that you're compute setup have access to a GPU (it will error otherwise). A T100 GPU for about 1 hours should be sufficient to run 10,000 epochs of our model, which will give some results, though they are lacking. Realistically, only at around 100,000 epochs will the model perform relatively well, which corresponds to around 10 or more hours of using a T100 GPU.
+
+## 3.3b - How to Run our Code
+To run our code, first you need to be connected to a GPU, secondly you need to be in Google Colab, and thirdly you need to run all the cells in the order in which they currently are. All necessary files are downloaded by the notebook, and thus as long as you go in the intended order everything should run (at least when we tested it on different systems it did).
 
 ## 3.4 - Results and Analysis
 After viewing our reconstructed images, we can observe that our models latent space does not give equal weighting to all of the digits, and seems to nearly always choose to generate 0s. The paper's results, on the other hand, achieve a healthy variety of all the digits. Furthermore, we sometimes have completely black or smudged digits which are undecipherable, which the paper does not mention.
