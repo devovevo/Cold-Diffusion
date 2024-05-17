@@ -1,0 +1,2 @@
+# How to download the MNIST dataset
+Since we use the MNIST dataset in our training, in order to run our code you will need to download it. Thankfully, this logic is already implemented in the provided Jupyter Notebook, which if it is run in Google Colab will download the MNIST dataset to a local folder. Therefore, simply run the cells in the order they are written and all data will be loaded when it is needed.
